@@ -58,9 +58,9 @@
 컴퓨터에 Python이 설치돼 있다면, 아래 세 줄이면 끝이에요.
 
 ```bash
-pip install -r requirements.txt      # ① 필요한 도구 설치
-python notebooks/analyze.py          # ② 데이터 정리 + 분석 + 그래프 5장 생성
-python notebooks/build_dashboard.py  # ③ (보너스) 클릭해서 갖고 노는 대시보드 만들기
+pip install -e .                              # ① 필요한 도구 설치
+python src/nvda_analysis/analyze.py           # ② 데이터 정리 + 분석 + 그래프 5장 생성
+python src/nvda_analysis/build_dashboard.py   # ③ (보너스) 클릭해서 갖고 노는 대시보드 만들기
 ```
 
 > 💡 이미 결과 파일이 다 커밋돼 있어서, 이 명령어를 안 돌려도 위 그래프와
@@ -74,8 +74,9 @@ python notebooks/build_dashboard.py  # ③ (보너스) 클릭해서 갖고 노�
 ```
 REPORT.md                    ⭐ 분석 결과를 정리한 글 (이걸 제일 먼저 읽으세요)
 problem.md                    미션 원문(문제)
+pyproject.toml                 이 프로젝트를 설치·실행하는 데 필요한 정보(표준 파이썬 방식)
 docs/01-AI사용로그.md         AI를 어떻게, 어디까지 썼는지 기록
-notebooks/
+src/nvda_analysis/             실제 분석 코드가 들어있는 폴더
   ├─ fetch_data.py            데이터 받아오기
   ├─ analyze.py                데이터 정리 + 분석 + 그래프 만들기
   └─ build_dashboard.py        (보너스) 대시보드 만들기
@@ -100,7 +101,7 @@ captures/dashboard/           (보너스) 대시보드 실제로 써본 화면 �
 ## 📊 데이터는 어디서 났나요?
 
 **Yahoo Finance**라는, 누구나 무료로 쓸 수 있는 주가 정보 사이트의 공개
-API에서 받았어요. 회원가입이나 API 키 같은 게 전혀 필요 없어서, `notebooks/fetch_data.py`
+API에서 받았어요. 회원가입이나 API 키 같은 게 전혀 필요 없어서, `src/nvda_analysis/fetch_data.py`
 를 실행하면 이 글을 쓴 시점 이후의 최신 데이터로도 다시 받아올 수 있어요.
 
 ---
